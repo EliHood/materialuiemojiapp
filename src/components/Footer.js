@@ -24,7 +24,6 @@ const styles = theme => ({
       top: 'auto',
       bottom: 0,
       left: 0,
-      margin:'0 auto'
     },
     toolbar: {
       alignItems: 'center',
