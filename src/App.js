@@ -23,13 +23,17 @@ const styles = theme => ({
     root: {
         flexGrow: 1,
         minHeight: '800px',
-
-        position: 'relative'
+        position: 'relative',
+        [theme.breakpoints.up(1100 + theme.spacing.unit * 3 * 2)]: {
+            width: 1100,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          },
     },
     paper: {
         padding: theme.spacing.unit * 2,
+        flex:1,
         textAlign: 'left',
-        width: '500px',
         color: theme.palette.text.secondary
     },
     textField: {
@@ -106,8 +110,8 @@ class App extends Component {
             <div className={classes.root}>
                 <Navbar/>
                 <Grid container spacing={12}>
-                    <Grid item sm={6} className={classes.myitem}>
-                        <Paper className={classes.paper}>
+                    <Grid item xs={12} md={6} className={classes.myitem}>
+                        <Paper  className={classes.paper}>
                             <Typography variant="h2" component="h2">
                                 Insert An Emoji
                             </Typography>
