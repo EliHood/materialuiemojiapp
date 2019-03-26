@@ -1,52 +1,79 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import { withStyles } from '@material-ui/core';
+import {withStyles} from '@material-ui/core';
 import EmojiPicker from 'emoji-picker-react';
-
+import {Typography, Button} from '@material-ui/core';
 const styles = theme => ({
     container: {
-      display: 'flex',
-      flexWrap: 'wrap',
+        display: 'flex',
+        flexWrap: 'wrap'
     },
     textField: {
-      marginLeft: theme.spacing.unit,
-      marginRight: theme.spacing.unit,
-      width: 200,
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
+        width: '400px'
     },
     dense: {
-      marginTop: 19,
+        marginTop: 19
     },
     menu: {
-      width: 200,
+        width: 200
     },
-    emoji:{
-        margin:'40px 0px'
+    emoji: {
+        margin: '20px 0px'
     }
 });
 
 const Emoji = props => {
     const {classes} = props
-    return(
-        <div  className={classes.emoji}>
+    return (
+        <div className={classes.emoji}>
+            <form>
+                <TextField
+                    id="standard-name"
+                    label="Enter Something"
+                    className={classes.textField}
+                    value={props.text}
+                    onChange={props.onChange}
+                    margin="normal"/> {props.emojiToggle
+                    ? (
+                        <div>
+                            <EmojiPicker onEmojiClick={props.emojiClick}/>
+                            <Button
+                                className={classes.cancel}
+                                onClick={props.handleButton}
+                                color="danger"
+                                variant="outlined">
+                                Close
+                            </Button>
+                        </div>
+                    )
+                    : (
+                        <div>
+                            <Button onClick={props.handleShowButton} color="primary" variant="outlined">
+                                Show Emojis
+                            </Button>
 
-            {/* <TextField
-                id="standard-name"
-                label="Emoji"
-                className={classes.textField}
-                value={props.emoji}
-                onChange={props.onChange}
-                margin="normal"
-            /> */}
-              
+                            <Button
+                                onClick={props.onSubmit}
+                                style={{
+                                marginLeft: '10px'
+                            }}
+                                color="primary"
+                                variant="outlined">
+                                Submit
+                            </Button>
+
+                        </div>
+                    )}
+                {/* End  Form */}
+            </form>
 
         </div>
     )
 
-
-
 }
 
-export default withStyles(styles) (Emoji);
+export default withStyles(styles)(Emoji);

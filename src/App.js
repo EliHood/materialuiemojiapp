@@ -89,7 +89,6 @@ class App extends Component {
           this.setState({emojiToggle: false})
 
         }
-   
     }
     
     onSubmit = (e) => {
@@ -117,46 +116,19 @@ class App extends Component {
                                 Insert An Emoji
                             </Typography>
                           {/* Begin Form */}
-                          <form>
-                            <TextField
-                                id="standard-name"
-                                label="Enter Something"
-                                className={classes.textField}
-                                value={this.state.text}
-                                onChange={this.onChange}
-                                margin="normal"
-                              />
-                              {this.state.emojiToggle ? (
-                                    <div>
-                                        <EmojiPicker onEmojiClick={this.handleClick}/>
-                                        <Button
-                                            className={classes.cancel}
-                                            onClick={this.handleButton}
-                                            color="danger"
-                                            variant="outlined">
-                                            Close
-                                        </Button>
-                                    </div>
-                                )
-                                : (
-                                    <div>
-                                        <Button onClick={this.handleButton} color="primary" variant="outlined">
-                                            Show Emojis
-                                        </Button>
-
-                                        <Button onClick={this.onSubmit} style={{ marginLeft: '10px'}} color="primary" variant="outlined">
-                                            Submit
-                                        </Button>
-
-
-                                    </div>
-                                )}
-                              {/* End  Form */}
-                            </form>
+                         <Emoji 
+                            text={this.state.text} 
+                            onChange={this.onChange} 
+                            emojiToggle={this.state.emojiToggle}
+                            emojiClick={this.handleClick}
+                            handleButton={this.handleButton}
+                            handleShowButton={this.handleButton}
+                            onSubmit={this.onSubmit}
+                             />
                         </Paper>
                     </Grid>
-
-                    
+                                
+                {/* items gets passed here as a prop */}
                 <EmojiList items={this.state.items} />
                 </Grid>
                 <Footer/>

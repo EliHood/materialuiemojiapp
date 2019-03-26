@@ -46,14 +46,15 @@ const styles = theme => ({
 });
 
 const EmojiList = (props) => {
-
+    const {classes} = props
     return (
 
-        <Grid item sm={4} className={props.classes.myitem}>
+        <Grid item sm={4} className={classes.myitem}>
 
             <Typography variant="h2" component="h2">
                 Results
             </Typography>
+            {/* reference it by the name items, it can be called whatever.  */}
             {props.items.length > 0
                 ? (props.items.map((item, i) => (
                     <div key={i}>
@@ -66,7 +67,7 @@ const EmojiList = (props) => {
                 )))
                 : (
                     <div>
-                        <Grid item sm={6} className={props.classes.notFound}>
+                        <Grid item sm={6} className={classes.notFound}>
                             <Typography>
                                 No Items
                             </Typography>
