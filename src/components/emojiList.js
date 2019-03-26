@@ -66,7 +66,6 @@ const EmojiList = (props) => {
                 )))
                 : (
                     <div>
-
                         <Grid item sm={6} className={props.classes.notFound}>
                             <Typography>
                                 No Items
