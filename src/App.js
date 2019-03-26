@@ -47,6 +47,12 @@ const styles = theme => ({
     emojiButton: {
         margin: '20px 0px'
     },
+    myitemList:{
+        margin:'20px 0px'
+    },
+    notFound: {
+        margin:'20px 0px'
+    },
     cancel: {
         margin: '20px 0px'
     }
@@ -86,11 +92,15 @@ class App extends Component {
     }
     
     onSubmit = (e) => {
-      e.preventDefault();
-      this.setState({
-        text: this.state.text,
-        items: [this.state.text]
-      }, () => console.log(this.state.items));
+        e.preventDefault();
+        this.setState(
+          {
+            text: this.state.text,
+            items: [...this.state.items, this.state.text]
+          },
+          () => console.log(this.state.items)
+        );
+   
     }
     
 
@@ -144,6 +154,41 @@ class App extends Component {
                             </form>
                         </Paper>
                     </Grid>
+
+                    
+                    <Grid item sm={4} className={classes.myitem}>
+                        <Typography variant="h2" component="h2">
+                            Output
+                        </Typography>
+                    
+                
+                    {this.state.items.length > 0 ? (
+                        this.state.items.map( (item, i) => (
+                    
+                            <div key={i}>
+                                <Grid item sm={8} className={classes.myitemList}>    
+                                    <Paper >
+                                        <Typography>
+
+                                           {item}
+                                        </Typography>
+                                    </Paper>
+                                </Grid>
+                            </div>
+                        ))
+                    ) : (
+                        <div>
+                                
+                            <Grid item sm={6} className={classes.notFound}>
+                                <Typography>
+                                   No Items
+                                </Typography>
+                            
+                            </Grid>
+                        </div>
+          
+                    )}
+                     </Grid>
                 </Grid>
                 <Footer/>
             </div>
