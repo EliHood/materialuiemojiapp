@@ -3,14 +3,10 @@ import Navbar from './components/Navbar';
 import {withStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import logo from './logo.svg';
-import {Typography, Button} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 import Footer from './components/Footer';
 import Emoji from './components/Emoji';
-import TextField from '@material-ui/core/TextField';
-import EmojiPicker from 'emoji-picker-react';
 import JSEMOJI from 'emoji-js';
-import Icon from '@material-ui/core/Icon';
 import EmojiList from './components/emojiList';
 let jsemoji = new JSEMOJI();
 // set the style to emojione (default - apple)

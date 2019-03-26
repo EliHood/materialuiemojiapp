@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import TextField from '@material-ui/core/TextField';
 import {withStyles} from '@material-ui/core';
 import EmojiPicker from 'emoji-picker-react';
-import {Typography, Button} from '@material-ui/core';
+import {Button} from '@material-ui/core';
 const styles = theme => ({
     container: {
         display: 'flex',
@@ -25,7 +23,6 @@ const styles = theme => ({
         margin: '20px 0px'
     }
 });
-
 const Emoji = props => {
     const {classes} = props
     return (
@@ -55,7 +52,6 @@ const Emoji = props => {
                             <Button onClick={props.handleShowButton} color="primary" variant="outlined">
                                 Show Emojis
                             </Button>
-
                             <Button
                                 onClick={props.onSubmit}
                                 style={{
@@ -65,15 +61,11 @@ const Emoji = props => {
                                 variant="outlined">
                                 Submit
                             </Button>
-
                         </div>
                     )}
                 {/* End  Form */}
             </form>
-
         </div>
     )
-
 }
-
 export default withStyles(styles)(Emoji);

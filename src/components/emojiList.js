@@ -1,20 +1,21 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import {Typography, Button} from '@material-ui/core';
+
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
 const styles = theme => ({
     shadows: ["none"],
     spacing: 8,
     root: {
         flexGrow: 1,
-        minHeight: '800px',
-
-        position: 'relative'
+        width: '100%',
+        maxWidth: 360,
+        backgroundColor: theme.palette.background.paper,
+        position: 'relative',
+        overflow: 'auto',
+        maxHeight: 100,
     },
     paper: {
         padding: theme.spacing.unit * 2,
@@ -44,42 +45,30 @@ const styles = theme => ({
         margin: '20px 0px'
     }
 });
-
 const EmojiList = (props) => {
     const {classes} = props
     return (
-
         <Grid item sm={4} className={classes.myitem}>
-
-            <Typography variant="h2" component="h2">
-                Results
-            </Typography>
             {/* reference it by the name items, it can be called whatever.  */}
+            <ListSubheader> Results </ListSubheader>
             {props.items.length > 0
                 ? (props.items.map((item, i) => (
-                    <div key={i}>
-                        <List component="nav">
-                            <ListItem href="#simple-list">
+                        <List className={classes.root} component="nav">
+                            <ListItem key={i} href="#simple-list">
                                 {item}
                             </ListItem>
                         </List>
-                    </div>
                 )))
                 : (
                     <div>
-                        <Grid item sm={6} className={classes.notFound}>
-                            <Typography>
-                                No Items
-                            </Typography>
-
-                        </Grid>
+                          <List component="nav">
+                            <ListItem  href="#simple-list">
+                                No Items Yet
+                            </ListItem>
+                        </List>
                     </div>
-
                 )}
         </Grid>
-
     )
-
 }
-
 export default withStyles(styles)(EmojiList);
