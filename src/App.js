@@ -11,6 +11,7 @@ import TextField from '@material-ui/core/TextField';
 import EmojiPicker from 'emoji-picker-react';
 import JSEMOJI from 'emoji-js';
 import Icon from '@material-ui/core/Icon';
+import EmojiList from './components/emojiList';
 let jsemoji = new JSEMOJI();
 // set the style to emojione (default - apple)
 jsemoji.img_set = 'emojione';
@@ -26,7 +27,7 @@ const styles = theme => ({
     root: {
         flexGrow: 1,
         minHeight: '800px',
-        width: '100%',
+
         position: 'relative'
     },
     paper: {
@@ -156,39 +157,7 @@ class App extends Component {
                     </Grid>
 
                     
-                    <Grid item sm={4} className={classes.myitem}>
-                        <Typography variant="h2" component="h2">
-                            Output
-                        </Typography>
-                    
-                
-                    {this.state.items.length > 0 ? (
-                        this.state.items.map( (item, i) => (
-                    
-                            <div key={i}>
-                                <Grid item sm={8} className={classes.myitemList}>    
-                                    <Paper >
-                                        <Typography>
-
-                                           {item}
-                                        </Typography>
-                                    </Paper>
-                                </Grid>
-                            </div>
-                        ))
-                    ) : (
-                        <div>
-                                
-                            <Grid item sm={6} className={classes.notFound}>
-                                <Typography>
-                                   No Items
-                                </Typography>
-                            
-                            </Grid>
-                        </div>
-          
-                    )}
-                     </Grid>
+                <EmojiList items={this.state.items} />
                 </Grid>
                 <Footer/>
             </div>
