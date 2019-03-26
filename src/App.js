@@ -67,10 +67,11 @@ class App extends Component {
     }
     handleClick = (n, e) => {
         let emoji = jsemoji.replace_colons(`:${e.name}:`);
+   
         this.setState({
-            text: this.state.text + emoji
+            text: this.state.text + emoji,
         });
-        console.log(emoji)
+        // console.log(this.state.items)
     }
     handleButton = (e) => {
         e.preventDefault();
@@ -82,6 +83,14 @@ class App extends Component {
 
         }
    
+    }
+    
+    onSubmit = (e) => {
+      e.preventDefault();
+      this.setState({
+        text: this.state.text,
+        items: [this.state.text]
+      }, () => console.log(this.state.items));
     }
     
 
@@ -96,6 +105,8 @@ class App extends Component {
                             <Typography variant="h2" component="h2">
                                 Insert An Emoji
                             </Typography>
+                          {/* Begin Form */}
+                          <form>
                             <TextField
                                 id="standard-name"
                                 label="Enter Something"
@@ -121,8 +132,16 @@ class App extends Component {
                                         <Button onClick={this.handleButton} color="primary" variant="outlined">
                                             Show Emojis
                                         </Button>
+
+                                        <Button onClick={this.onSubmit} style={{ marginLeft: '10px'}} color="primary" variant="outlined">
+                                            Submit
+                                        </Button>
+
+
                                     </div>
                                 )}
+                              {/* End  Form */}
+                            </form>
                         </Paper>
                     </Grid>
                 </Grid>
