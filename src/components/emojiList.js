@@ -3,7 +3,10 @@ import {withStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {Typography, Button} from '@material-ui/core';
-
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
 const styles = theme => ({
     shadows: ["none"],
     spacing: 8,
@@ -31,11 +34,11 @@ const styles = theme => ({
     emojiButton: {
         margin: '20px 0px'
     },
-    myitemList:{
-        margin:'20px 0px'
+    myitemList: {
+        margin: '20px 0px'
     },
     notFound: {
-        margin:'20px 0px'
+        margin: '20px 0px'
     },
     cancel: {
         margin: '20px 0px'
@@ -43,39 +46,37 @@ const styles = theme => ({
 });
 
 const EmojiList = (props) => {
- 
-    return(
-        <Grid item sm={4} className={props.classes.myitem}>
-                <Typography variant="h2" component="h2">
-                        Output
-                    </Typography>
-                    {props.items.length > 0 ? (
-                        props.items.map( (item, i) => (
-                    
-                            <div key={i}>
-                                <Grid item sm={8} className={props.classes.myitemList}>    
-                                    <Paper >
-                                        <Typography  variant="h6" component="h6">
-                                           {item}
-                                        </Typography>
-                                    </Paper>
-                                </Grid>
-                            </div>
-                        ))
-                    ) : (
-                        <div>
-                                
-                            <Grid item sm={6} className={props.classes.notFound}>
-                                <Typography>
-                                   No Items
-                                </Typography>
-                            
-                            </Grid>
-                        </div>
-          
-                    )}
-        </Grid>
 
+    return (
+
+        <Grid item sm={4} className={props.classes.myitem}>
+
+            <Typography variant="h2" component="h2">
+                Results
+            </Typography>
+            {props.items.length > 0
+                ? (props.items.map((item, i) => (
+                    <div key={i}>
+                        <List component="nav">
+                            <ListItem href="#simple-list">
+                                {item}
+                            </ListItem>
+                        </List>
+                    </div>
+                )))
+                : (
+                    <div>
+
+                        <Grid item sm={6} className={props.classes.notFound}>
+                            <Typography>
+                                No Items
+                            </Typography>
+
+                        </Grid>
+                    </div>
+
+                )}
+        </Grid>
 
     )
 
