@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import {withStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import {Typography} from '@material-ui/core';
-import Footer from './components/Footer';
-import Emoji from './components/Emoji';
+import Footer from './components/Footer/Footer';
+import Emoji from './components/Emoji/Emoji';
 import JSEMOJI from 'emoji-js';
-import EmojiList from './components/emojiList';
+import EmojiList from './components/EmojiList/emojiList';
 let jsemoji = new JSEMOJI();
 // set the style to emojione (default - apple)
 jsemoji.img_set = 'emojione';
